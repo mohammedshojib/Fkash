@@ -42,7 +42,7 @@ const Dashboard = () => {
             Login to change your lifestyle and build your buisness with us.
           </p>
         </div>
-        <div class="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+        <div class="card flex-shrink-0 text-center w-full max-w-md shadow-2xl bg-base-100">
           <div class="card-body">
             <div class="form-control grid gap-5 m-auto grid-cols-4 mb-10">
               <Link to="/sendmoney">

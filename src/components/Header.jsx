@@ -194,6 +194,20 @@ const Header = ({ children }) => {
               >
                 DashBoard
               </NavLink>
+            )}{" "}
+            {user?.email ? (
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "rounded text-primary font-bold uppercase hover:bg-white"
+                    : "rounded text-black font-bold uppercase  hover:bg-white"
+                }
+                to="/profile"
+              >
+                Profile
+              </NavLink>
+            ) : (
+              ""
             )}
           </li>
         </ul>

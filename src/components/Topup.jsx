@@ -56,7 +56,7 @@ const Topup = () => {
   };
 
   return (
-    <div class="card flex-shrink-0 w-3/6 m-auto shadow-2xl bg-base-100">
+    <div class="card flex-shrink-0 lg:w-3/6 w-full m-auto shadow-2xl bg-base-100">
       <div class="card-body">
         <h1 className="font-bold text-2xl">Mobile TopUp</h1>
         <form action="" onSubmit={handleTopup}>

@@ -17,6 +17,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import axios from "axios";
 import Transaction from "./components/Transaction";
+import Notfound from "./components/Notfound";
 
 export const usersContext = createContext();
 
@@ -43,6 +44,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Notfound />} />
             <Route
               path="/topup"
               element={
