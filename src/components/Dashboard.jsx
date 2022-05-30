@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users`, {
+      .get(`https://rocky-everglades-90190.herokuapp.com/users`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accesToken")}`,
         },

@@ -40,14 +40,20 @@ const Login = () => {
   useEffect(() => {
     if (user) {
       const userData = async () => {
-        const { data } = await axios.post("http://localhost:5000/login", {
-          email,
-        });
+        const { data } = await axios.post(
+          "https://rocky-everglades-90190.herokuapp.com/login",
+          {
+            email,
+          }
+        );
         localStorage.setItem("accesToken", data);
         // <===== store user to database ====>
-        const res = await axios.put(`http://localhost:5000/user/${email}`, {
-          email: email,
-        });
+        const res = await axios.put(
+          `https://rocky-everglades-90190.herokuapp.com/user/${email}`,
+          {
+            email: email,
+          }
+        );
         navigate(from);
       };
       userData();

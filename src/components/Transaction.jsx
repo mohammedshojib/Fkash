@@ -17,7 +17,7 @@ const Transaction = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/transaction`, {
+      .get(`https://rocky-everglades-90190.herokuapp.com/transaction`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accesToken")}`,
         },

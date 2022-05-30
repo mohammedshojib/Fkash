@@ -24,7 +24,7 @@ const Sendmoney = () => {
     if (email == email1) {
       toast.error("You cant send to your account");
     } else {
-      const url = `http://localhost:5000/update/${email}`;
+      const url = `https://rocky-everglades-90190.herokuapp.com/update/${email}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -38,7 +38,7 @@ const Sendmoney = () => {
           // toast.success(`${balance} added succsessfully`);
         });
 
-      const url1 = `http://localhost:5000/update/${email1}`;
+      const url1 = `https://rocky-everglades-90190.herokuapp.com/update/${email1}`;
       fetch(url1, {
         method: "PUT",
         headers: {
@@ -56,7 +56,7 @@ const Sendmoney = () => {
         amount: amount,
         user: email,
       };
-      const url2 = "http://localhost:5000/transaction";
+      const url2 = "https://rocky-everglades-90190.herokuapp.com/transaction";
       fetch(url2, {
         method: "POST",
         headers: {
@@ -78,7 +78,7 @@ const Sendmoney = () => {
   const getData = (event) => {
     const email = event.target.value;
     axios
-      .get(`http://localhost:5000/usersdata/${email}`, {
+      .get(`https://rocky-everglades-90190.herokuapp.com/usersdata/${email}`, {
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("accesToken")}`,
         // },

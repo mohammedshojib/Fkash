@@ -14,7 +14,7 @@ const Addmoney = () => {
   const updateDetails = (event) => {
     event.preventDefault();
     if (event.target.balance.value === "XID100") {
-      const url = `http://localhost:5000/update/${email}`;
+      const url = `https://rocky-everglades-90190.herokuapp.com/update/${email}`;
       fetch(url, {
         method: "PUT",
         headers: {

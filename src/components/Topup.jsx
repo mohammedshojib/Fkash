@@ -23,7 +23,7 @@ const Topup = () => {
       amount: event.target.amount.value,
       user: event.target.number.value,
     };
-    const url = "http://localhost:5000/transaction";
+    const url = "https://rocky-everglades-90190.herokuapp.com/transaction";
     fetch(url, {
       method: "POST",
       headers: {
@@ -39,7 +39,7 @@ const Topup = () => {
         toast.error(error);
       });
 
-    const url1 = `http://localhost:5000/update/${email}`;
+    const url1 = `https://rocky-everglades-90190.herokuapp.com/update/${email}`;
     fetch(url1, {
       method: "PUT",
       headers: {
