@@ -8,11 +8,13 @@ import {
   FaCartPlus,
   FaDollarSign,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Transaction = () => {
   const [user1, loading, errorHook] = useAuthState(auth);
   const [transaction, setTransaction] = useState([]);
+  const navigate = useNavigate();
   const email = user1?.email;
 
   useEffect(() => {
@@ -49,9 +51,19 @@ const Transaction = () => {
               <td>{trx.user}</td>
             </tr>
           ))}
-          {transaction.length == 0 ? <p>No transaction</p> : ""}
-        </tbody>
+          {transaction.length == 0 ? (
+            <h1 className="text-center text-4xl">No transaction</h1>
+          ) : (
+            ""
+          )}
+        </tbody>{" "}
       </table>
+      <div class="divider">OR</div>
+      <div className="text-center">
+        <button class="btn btn-error" onClick={() => navigate("/dashboard")}>
+          Back
+        </button>
+      </div>
     </div>
   );
 };

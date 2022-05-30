@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import { usersContext } from "../App";
@@ -11,6 +12,7 @@ const Sendmoney = () => {
   const [user] = useContext(usersContext);
   const [user1, loading, errorHook] = useAuthState(auth);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const email1 = user1?.email;
 
   const updateDetails = (event) => {
@@ -35,7 +37,6 @@ const Sendmoney = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          // toast.success(`${balance} added succsessfully`);
         });
 
       const url1 = `https://rocky-everglades-90190.herokuapp.com/update/${email1}`;
@@ -67,10 +68,11 @@ const Sendmoney = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          toast.success(`Send Money succsessfull`);
+          navigate("/dashboard");
         })
         .catch((error) => {
           toast.error(error);
-          toast.success(`Send Money succsessfull`);
         });
     }
   };
@@ -142,6 +144,13 @@ const Sendmoney = () => {
                 </button>
               </div>
             </form>
+            <div class="divider">OR</div>
+            <button
+              class="btn btn-error"
+              onClick={() => navigate("/dashboard")}
+            >
+              Back
+            </button>
           </div>
         </div>
       </div>

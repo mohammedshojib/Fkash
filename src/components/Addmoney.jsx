@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import { usersContext } from "../App";
@@ -9,6 +10,7 @@ const Addmoney = () => {
   const [balance, setBlanace] = useState("");
   const [user] = useContext(usersContext);
   const [user1, loading, errorHook] = useAuthState(auth);
+  const navigate = useNavigate();
   const email = user1?.email;
 
   const updateDetails = (event) => {
@@ -63,6 +65,15 @@ const Addmoney = () => {
 
               <div class="form-control mt-6">
                 <button class="btn btn-primary">Add Money</button>
+              </div>
+              <div class="divider">OR</div>
+              <div class="form-control mt-6">
+                <button
+                  class="btn btn-error"
+                  onClick={() => navigate("/dashboard")}
+                >
+                  Back
+                </button>
               </div>
             </form>
           </div>

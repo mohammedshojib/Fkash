@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import sendmoney from "../assets/dollar.png";
-import smartphone from "../assets/smartphone.png";
+import React, { useContext, useEffect } from "react";
 import {
   FaRegPaperPlane,
   FaWallet,
@@ -10,7 +8,6 @@ import {
 } from "react-icons/fa";
 import { AiFillDiff, AiTwotoneTags, AiOutlineMore } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
 import { usersContext } from "../App";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -38,7 +35,9 @@ const Dashboard = () => {
     <div class="hero min-h-screen">
       <div class="hero-content flex-col flex justify-between lg:flex-row-reverse">
         <div class="text-center lg:text-left">
-          <h1 class="text-5xl font-bold">Balance:{user[0]?.balance}</h1>
+          <h1 class="text-5xl font-bold">
+            Balance:{user[0]?.balance ? user[0]?.balance : 0}
+          </h1>
           <p class="py-6">
             Login to change your lifestyle and build your buisness with us.
           </p>
@@ -104,9 +103,6 @@ const Dashboard = () => {
             {/* <div class="form-control mt-6">
               <button class="btn btn-primary">Login</button>
             </div> */}
-            <button onClick={() => signOut(auth)} className="btn">
-              SingOut
-            </button>
           </div>
         </div>
       </div>

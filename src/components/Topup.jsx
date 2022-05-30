@@ -92,9 +92,17 @@ const Topup = () => {
               <option>Airtel</option>
             </select>
           </div>
-
           <div class="form-control mt-6">
             <input type="submit" className="btn" value="submit" />
+          </div>{" "}
+          <div class="divider">OR</div>
+          <div class="form-control mt-6">
+            <button
+              class="btn btn-error"
+              onClick={() => navigate("/dashboard")}
+            >
+              Back
+            </button>
           </div>
         </form>
       </div>
